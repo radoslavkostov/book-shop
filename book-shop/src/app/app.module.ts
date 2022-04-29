@@ -1,52 +1,76 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-import { environment } from '../environments/environment';
-import { SignInComponent } from './components/sign-in/sign-in.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from './app-routing.module';
+import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
-import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
-import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { HomeComponent } from './components/home/home.component';
-import { AuthService } from "./shared/services/auth.service";
-import { CatalogComponent } from './components/catalog/catalog.component';
-import { TopRatedComponent } from './components/top-rated/top-rated.component';
-import { MyCartComponent } from './components/my-cart/my-cart.component';
-import { CheckoutComponent } from './components/checkout/checkout.component';
-import { ThankYouPageComponent } from './components/thank-you-page/thank-you-page.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { HotToastModule } from '@ngneat/hot-toast';
+import { LandingComponent } from './components/landing/landing.component';
+import { MatMenuModule } from '@angular/material/menu';
 import { ProfileComponent } from './components/profile/profile.component';
+import { getStorage, provideStorage } from '@angular/fire/storage';
+import { MyCartComponent } from './components/my-cart/my-cart.component';
+import { TopRatedComponent } from './components/top-rated/top-rated.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { CatalogComponent } from './components/catalog/catalog.component';
+import { BookDetailsComponent } from './components/book-details/book-details.component';
+import { BookListItemComponent } from './components/book-list-item/book-list-item.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { StarReviewComponent } from './components/star-review/star-review.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignInComponent,
+    LoginComponent,
     SignUpComponent,
-    ForgotPasswordComponent,
-    VerifyEmailComponent,
+    LandingComponent,
     HomeComponent,
-    CatalogComponent,
-    TopRatedComponent,
+    ProfileComponent,
     MyCartComponent,
+    TopRatedComponent,
     CheckoutComponent,
-    ThankYouPageComponent,
-    ProfileComponent
+    CatalogComponent,
+    BookDetailsComponent,
+    BookListItemComponent,
+    StarReviewComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule,
-    AngularFirestoreModule,
-    AngularFireStorageModule,
-    AngularFireDatabaseModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
+    HotToastModule.forRoot(),
+    MatMenuModule,
+    AngularFirestoreModule
   ],
-  providers: [AuthService],
-  bootstrap: [AppComponent]
+  providers: [
+    { provide: FIREBASE_OPTIONS, useValue: environment.firebaseConfig }
+],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

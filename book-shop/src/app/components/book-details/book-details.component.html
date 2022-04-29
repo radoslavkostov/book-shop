@@ -1,0 +1,8 @@
+<ul>
+    <li *ngFor="let book of books">{{book.title}}
+        <p>
+            {{book.id}}
+        </p>
+    </li>
+    <star-review [bookId]="bookId" [userId]="userId"></star-review>
+</ul>
