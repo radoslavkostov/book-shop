@@ -1,1 +1,5 @@
-<p>catalog works!</p>
+<input type="text" placeholder="Search by book name" #bookName>
+<button (click)="retrieveBooks(bookName.value)">Search</button>
+<ul *ngIf="books">
+    <app-book-list-item *ngFor="let book of books" [book]="book"></app-book-list-item>
+</ul>

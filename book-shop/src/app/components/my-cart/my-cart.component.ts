@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Book } from 'src/app/models/book.model';
 
 @Component({
   selector: 'app-my-cart',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-cart.component.css']
 })
 export class MyCartComponent implements OnInit {
+  books?: Book[];
 
   constructor() { }
 

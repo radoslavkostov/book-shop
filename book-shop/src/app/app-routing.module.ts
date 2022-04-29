@@ -53,6 +53,10 @@ const routes: Routes = [
     component: TopRatedComponent,
   },
   {
+    path: 'catalog',
+    component: CatalogComponent,
+  },
+  {
     path: 'details/:id',
     component: BookDetailsComponent,
   },

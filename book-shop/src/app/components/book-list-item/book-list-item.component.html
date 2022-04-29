@@ -2,4 +2,5 @@
     <p>{{book.title}}</p>
     <p>{{book.id}}</p>
     <a [routerLink]="['/details', book.id]">details</a>
+    <button (click)="addToCart(book)">Add to Cart</button>
 </div>
