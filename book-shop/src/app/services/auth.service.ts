@@ -10,6 +10,7 @@ import {
 } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { concatMap, from, Observable, of, switchMap } from 'rxjs';
+import { CartService } from './cart.service';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +19,7 @@ export class AuthService {
   currentUser$ = authState(this.auth);
   authState: any = null;
 
-  constructor(private auth: Auth, private firebaseAuth: AngularFireAuth,) {
+  constructor(private auth: Auth, private firebaseAuth: AngularFireAuth, private cartService: CartService) {
     this.firebaseAuth.authState.subscribe( authState => {
       this.authState = authState;
     });
@@ -48,6 +49,8 @@ export class AuthService {
   // }
 
   logout(): Observable<any> {
+    this.cartService.books = [];
+    console.log('just logged out')
     return from(this.auth.signOut());
   }
 }

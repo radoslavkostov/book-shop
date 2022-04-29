@@ -32,6 +32,8 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { StarReviewComponent } from './components/star-review/star-review.component';
+import { MyCartItemComponent } from './components/my-cart-item/my-cart-item.component';
+import { RemoveItemComponent } from './components/remove-item/remove-item.component';
 
 
 @NgModule({
@@ -49,6 +51,8 @@ import { StarReviewComponent } from './components/star-review/star-review.compon
     BookDetailsComponent,
     BookListItemComponent,
     StarReviewComponent,
+    MyCartItemComponent,
+    RemoveItemComponent,
   ],
   imports: [
     BrowserModule,

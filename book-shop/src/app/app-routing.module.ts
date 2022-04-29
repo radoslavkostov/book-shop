@@ -13,6 +13,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { CatalogComponent } from './components/catalog/catalog.component';
 import { TopRatedComponent } from './components/top-rated/top-rated.component';
 import { BookDetailsComponent } from './components/book-details/book-details.component';
+import { MyCartComponent } from './components/my-cart/my-cart.component';
+import { RemoveItemComponent } from './components/remove-item/remove-item.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
@@ -55,6 +57,14 @@ const routes: Routes = [
   {
     path: 'catalog',
     component: CatalogComponent,
+  },
+  {
+    path: 'my-cart',
+    component: MyCartComponent,
+  },
+  {
+    path: 'remove-item',
+    component: RemoveItemComponent,
   },
   {
     path: 'details/:id',

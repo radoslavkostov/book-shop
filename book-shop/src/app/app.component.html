@@ -2,6 +2,7 @@
   Sign Up Flow with Firebase
   <a routerLink="/top-rated">Top Rated</a>
   <a routerLink="/catalog">Catalog</a>
+  <a routerLink="/my-cart">My Cart</a>
   <ng-container *ngIf="user$ | async as user; else loginButton">
     <button mat-button [matMenuTriggerFor]="userMenu">
       <!-- <img

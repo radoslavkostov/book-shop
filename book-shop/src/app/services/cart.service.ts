@@ -5,12 +5,11 @@ import { Book } from '../models/book.model';
   providedIn: 'root'
 })
 export class CartService {
-  books!: Book[];
+  books: Book[] = [];
 
   constructor() { }
 
   addBook(book: Book): number{
-    localStorage.setItem(book.id!, '2');
     return this.books?.push(book);
   }
 }
