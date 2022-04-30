@@ -7,6 +7,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat
 import { Observable } from 'rxjs';
 import { UsersService } from 'src/app/services/users.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { StarService } from 'src/app/services/star.service';
 
 @Component({
   selector: 'app-book-details',
@@ -23,7 +24,7 @@ export class BookDetailsComponent implements OnInit {
   book!: Observable<any>; 
 
   constructor(private activatedRoute: ActivatedRoute, private bookService: BooksService, private afs: AngularFirestore, private usersService: UsersService,
-    private authService: AuthService) { }
+    private authService: AuthService, private starService: StarService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
@@ -55,5 +56,25 @@ export class BookDetailsComponent implements OnInit {
       this.books = data.filter(b => b.id==id).slice(0,1);
     });
   }
+
+  // updateRatingGlobally(bookId: any){
+  //   this.starService.getStarsForABook(bookId).snapshotChanges().pipe(
+  //     map(changes =>
+  //       changes.map(c =>
+  //         ({ id: c.payload.doc.id, ...c.payload.doc.data() })
+  //       )
+  //     )
+  //   ).subscribe(data => {
+  //     let totalValue = 0;
+  //     let divider = 0;
+  //     data.forEach(s => {
+  //       totalValue+=s.value;
+  //       divider++;
+  //     })
+  //     const result = totalValue/divider;
+  //     console.log(result);
+  //     this.afs.collection('/books').doc(bookId).update({avg_rating: result});
+  //   });
+  // }
 
 }
