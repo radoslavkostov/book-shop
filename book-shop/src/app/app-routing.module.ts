@@ -15,7 +15,6 @@ import { TopRatedComponent } from './components/top-rated/top-rated.component';
 import { BookDetailsComponent } from './components/book-details/book-details.component';
 import { MyCartComponent } from './components/my-cart/my-cart.component';
 import { RemoveItemComponent } from './components/remove-item/remove-item.component';
-import { OrderErrorComponent } from './components/order-error/order-error.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
@@ -65,11 +64,6 @@ const routes: Routes = [
   {
     path: 'remove-item',
     component: RemoveItemComponent,
-    ...canActivate(redirectUnauthorizedToLogin),
-  },
-  {
-    path: 'order-error',
-    component: OrderErrorComponent,
     ...canActivate(redirectUnauthorizedToLogin),
   },
   {

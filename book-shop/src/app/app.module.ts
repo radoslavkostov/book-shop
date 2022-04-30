@@ -38,7 +38,6 @@ import {MatCardModule} from '@angular/material/card';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import { OrderErrorComponent } from './components/order-error/order-error.component';
 
 
 @NgModule({
@@ -58,7 +57,6 @@ import { OrderErrorComponent } from './components/order-error/order-error.compon
     StarReviewComponent,
     MyCartItemComponent,
     RemoveItemComponent,
-    OrderErrorComponent,
   ],
   imports: [
     BrowserModule,
