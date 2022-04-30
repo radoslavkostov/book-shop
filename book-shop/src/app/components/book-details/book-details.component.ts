@@ -57,24 +57,6 @@ export class BookDetailsComponent implements OnInit {
     });
   }
 
-  // updateRatingGlobally(bookId: any){
-  //   this.starService.getStarsForABook(bookId).snapshotChanges().pipe(
-  //     map(changes =>
-  //       changes.map(c =>
-  //         ({ id: c.payload.doc.id, ...c.payload.doc.data() })
-  //       )
-  //     )
-  //   ).subscribe(data => {
-  //     let totalValue = 0;
-  //     let divider = 0;
-  //     data.forEach(s => {
-  //       totalValue+=s.value;
-  //       divider++;
-  //     })
-  //     const result = totalValue/divider;
-  //     console.log(result);
-  //     this.afs.collection('/books').doc(bookId).update({avg_rating: result});
-  //   });
-  // }
+  
 
 }

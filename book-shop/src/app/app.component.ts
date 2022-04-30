@@ -24,13 +24,6 @@ export class AppComponent {
     private cartService: CartService
   ) {}
 
-  // ngOnInit(): void {
-  //   this.cartService.getBooks()
-  //   .subscribe(res=>{
-  //     this.cartItemsLength = res.length;
-  //   })
-  // }
-  
 
   logout() {
     this.authService.logout().subscribe(() => {

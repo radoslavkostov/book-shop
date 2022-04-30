@@ -8,12 +8,6 @@
   <a routerLink="/my-cart" class="nav"><mat-icon class="shopping-cart">shopping_cart</mat-icon></a>
   <ng-container *ngIf="user$ | async as user; else loginButton">
     <button mat-button [matMenuTriggerFor]="userMenu">
-      <!-- <img
-        width="30"
-        height="30"
-        class="profile-image-toolbar"
-        [src]="user.photoURL ?? 'assets/images/image-placeholder.png'"
-      /> -->
       {{ user.displayName }}
       <mat-icon>expand_more</mat-icon>
     </button>

@@ -21,10 +21,7 @@ export class MyCartComponent implements OnInit {
     this.books?.forEach(b=>this.totalPrice+=b.price!);
   }
 
-  // calculateTotalPrice(){
-  //   let totalPrice = 0;
-  //   this.books?.forEach(b=>totalPrice+=b.price!);
-  // }
+  
 
   completeOrder(){
     this.router.navigate(['checkout']);

@@ -28,12 +28,9 @@ export class StarService {
   }
 
   setStar(userId: any, bookId: any, value: any) {
-    // Star document data
     const star: Star = { userId, bookId, value };
 
-    // Custom doc ID for relationship
     const starPath = `stars/${star.userId}_${star.bookId}`;
-    // this.afs.collection('/books').doc(bookId).update({ratings: [value]});
     
 
     // Set the data, return the promise
@@ -62,7 +59,6 @@ export class StarService {
       console.log(result);
       this.afs.collection('/books').doc(bookId).update({avg_rating: result});
     });
-    // return this.afs.collection('stars', ref => ref.where('bookId', '==', bookId)) as AngularFirestoreCollection<Star>
   }
 
 }
