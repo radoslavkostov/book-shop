@@ -1,2 +1,5 @@
-<h4>Cart</h4>
+<h1>Cart</h1>
 <app-my-cart-item *ngFor="let book of books" [book]="book"></app-my-cart-item>
+<p>Total price: {{totalPrice}}</p>
+
+<button mat-button color="primary" (click)="completeOrder()">Finish order</button>

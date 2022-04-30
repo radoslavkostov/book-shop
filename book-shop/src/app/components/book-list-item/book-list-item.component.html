@@ -6,14 +6,15 @@
 </div> -->
 <mat-card class="example-card">
   <mat-card-title-group>
-    <mat-card-title>By: {{book.author}}</mat-card-title>
-    <mat-card-subtitle>Small</mat-card-subtitle>
+    <mat-card-title>{{book.title}}</mat-card-title>
+    <mat-card-subtitle>By: {{book.author}}</mat-card-subtitle>
     <img mat-card-sm-image src="{{book.image}}" >
   </mat-card-title-group>
   <mat-card-content>
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam nam laudantium minima dolore. Reiciendis, iste. Deserunt vero eveniet ut quidem!
+    <p>price: {{book.price}}leva</p>
+    <p>rating: {{book.avg_rating}}</p>
   </mat-card-content>
-  <a [routerLink]="['/details', book.id]">details</a>
+    <a [routerLink]="['/details', book.id]" mat-stroked-button>Details</a>
     <button (click)="addToCart(book)" mat-stroked-button>Add to Cart</button>
 </mat-card>
   

@@ -1,9 +1,17 @@
 <ul>
-    <li *ngFor="let book of books">{{book.title}}
-        <p>
-            {{book.id}}
-        </p>
-    <!-- <button (click)="updateRatingGlobally(book.id)">Update rating globally</button> -->
+    <li *ngFor="let book of books">
+        <mat-card class="example-card">
+            <mat-card-title-group>
+              <mat-card-title>{{book.title}}</mat-card-title>
+              <mat-card-subtitle>By: {{book.author}}</mat-card-subtitle>
+              <img mat-card-md-image src="{{book.image}}" >
+            </mat-card-title-group>
+            <mat-card-content>
+                <p>{{book.description}}</p>
+                <p>Price: {{book.price}}leva</p>
+                <p>Pages: {{book.pages}}</p>
+            </mat-card-content>
+          </mat-card>
 
     </li>
     <star-review [bookId]="bookId" [userId]="userId"></star-review>

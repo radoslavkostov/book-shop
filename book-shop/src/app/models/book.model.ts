@@ -8,4 +8,5 @@ export class Book{
     pages?: string;
     avg_rating?: number;
     image?: string;
+    price?: number
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Book } from 'src/app/models/book.model';
+import { AuthService } from 'src/app/services/auth.service';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -9,12 +11,24 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class MyCartComponent implements OnInit {
   books?: Book[] = [];
+  totalPrice = 0;
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.cartService.books.forEach(b => this.books?.push(b));
     console.log(this.books?.length);
+    this.books?.forEach(b=>this.totalPrice+=b.price!);
+  }
+
+  // calculateTotalPrice(){
+  //   let totalPrice = 0;
+  //   this.books?.forEach(b=>totalPrice+=b.price!);
+  // }
+
+  completeOrder(){
+    this.router.navigate(['checkout']);
+    this.cartService.books = [];
   }
 
 }

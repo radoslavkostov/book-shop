@@ -1,5 +1,10 @@
-<input type="text" placeholder="Search by book name" #bookName>
-<button (click)="retrieveBooks(bookName.value)">Search</button>
-<ul *ngIf="books">
-    <app-book-list-item *ngFor="let book of books" [book]="book"></app-book-list-item>
-</ul>
+<div class="catalog-container">
+    <div class="input-div">
+        <input matInput type="text" placeholder="Search by book name" #bookName>
+        <button (click)="retrieveBooks(bookName.value)"><mat-icon>search</mat-icon></button>
+    </div>
+    
+    <div *ngIf="books" class="book-list-items-container">
+        <app-book-list-item *ngFor="let book of books" [book]="book"></app-book-list-item>
+    </div>
+</div>

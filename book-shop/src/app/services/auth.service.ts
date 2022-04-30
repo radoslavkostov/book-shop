@@ -28,6 +28,9 @@ export class AuthService {
   get currentUserId(): string{
     return this.authState.uid;
   }
+  get currentUserAddress(): string{
+    return this.authState.address;
+  }
 
   signUp(email: string, password: string): Observable<UserCredential> {
     return from(createUserWithEmailAndPassword(this.auth, email, password));
