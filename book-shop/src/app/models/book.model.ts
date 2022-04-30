@@ -6,4 +6,6 @@ export class Book{
     year_published?: string;
     genre?: string;
     pages?: string;
+    avg_rating?: number;
+    image?: string;
 }

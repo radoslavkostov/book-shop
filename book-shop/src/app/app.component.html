@@ -1,8 +1,11 @@
 <mat-toolbar color="primary">
-  Sign Up Flow with Firebase
-  <a routerLink="/top-rated">Top Rated</a>
-  <a routerLink="/catalog">Catalog</a>
-  <a routerLink="/my-cart">My Cart</a>
+  <a routerLink="/home" class="logo"><div><fa-icon [icon]="faBookOpenReader"></fa-icon>
+    Book Shop</div></a>
+  
+  
+  <a routerLink="/top-rated" class="nav">Top Rated</a>
+  <a routerLink="/catalog" class="nav">Catalog</a>
+  <a routerLink="/my-cart" class="nav"><mat-icon matBadge="{{cartItemsLength}}"  matBadgeColor="warn">shopping_cart</mat-icon></a>
   <ng-container *ngIf="user$ | async as user; else loginButton">
     <button mat-button [matMenuTriggerFor]="userMenu">
       <!-- <img

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Book } from '../models/book.model';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,11 @@ export class CartService {
 
   constructor() { }
 
-  addBook(book: Book): number{
-    return this.books?.push(book);
+  addBook(book: Book): void{
+    this.books?.push(book);
+  }
+
+  getBooks(){
+    return of(this.books);
   }
 }

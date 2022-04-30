@@ -1,6 +1,19 @@
-<div>
+<!-- <div>
     <p>{{book.title}}</p>
     <p>{{book.id}}</p>
     <a [routerLink]="['/details', book.id]">details</a>
     <button (click)="addToCart(book)">Add to Cart</button>
-</div>
+</div> -->
+<mat-card class="example-card">
+  <mat-card-title-group>
+    <mat-card-title>By: {{book.author}}</mat-card-title>
+    <mat-card-subtitle>Small</mat-card-subtitle>
+    <img mat-card-sm-image src="{{book.image}}" >
+  </mat-card-title-group>
+  <mat-card-content>
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam nam laudantium minima dolore. Reiciendis, iste. Deserunt vero eveniet ut quidem!
+  </mat-card-content>
+  <a [routerLink]="['/details', book.id]">details</a>
+    <button (click)="addToCart(book)" mat-stroked-button>Add to Cart</button>
+</mat-card>
+  

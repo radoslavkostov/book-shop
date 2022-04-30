@@ -10,7 +10,8 @@ import { map } from 'rxjs/operators';
 })
 export class TopRatedComponent implements OnInit {
 
-  books?: Book[];
+  adventureBooks?: Book[];
+  crimeBooks?: Book[];
 
   constructor(private bookService: BooksService) { }
 
@@ -27,7 +28,8 @@ export class TopRatedComponent implements OnInit {
         )
       )
     ).subscribe(data => {
-      this.books = data;
+      this.adventureBooks = data.filter(b => b.genre=='Adventure').sort((b1,b2) => b2.avg_rating!-b1.avg_rating!).splice(0,3);
+      this.crimeBooks = data.filter(b => b.genre=='Crime').sort((b1,b2) => b2.avg_rating!-b1.avg_rating!).splice(0,3);
     });
   }
 

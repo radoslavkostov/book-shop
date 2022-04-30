@@ -34,6 +34,10 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { StarReviewComponent } from './components/star-review/star-review.component';
 import { MyCartItemComponent } from './components/my-cart-item/my-cart-item.component';
 import { RemoveItemComponent } from './components/remove-item/remove-item.component';
+import {MatCardModule} from '@angular/material/card';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -70,7 +74,11 @@ import { RemoveItemComponent } from './components/remove-item/remove-item.compon
     provideStorage(() => getStorage()),
     HotToastModule.forRoot(),
     MatMenuModule,
-    AngularFirestoreModule
+    MatCardModule,
+    MatBadgeModule,
+    MatSnackBarModule,
+    AngularFirestoreModule,
+    FontAwesomeModule
   ],
   providers: [
     { provide: FIREBASE_OPTIONS, useValue: environment.firebaseConfig }

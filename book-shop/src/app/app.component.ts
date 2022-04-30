@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './services/auth.service';
 import { UsersService } from './services/users.service';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faBookOpenReader } from '@fortawesome/free-solid-svg-icons';
+import { CartService } from './services/cart.service';
 
 @Component({
   selector: 'app-root',
@@ -10,12 +13,24 @@ import { UsersService } from './services/users.service';
 })
 export class AppComponent {
   user$ = this.usersService.currentUserProfile$;
+  faCartShopping = faCartShopping;
+  faBookOpenReader = faBookOpenReader;
+  cartItemsLength = this.cartService.books.length;
 
   constructor(
     private authService: AuthService,
     public usersService: UsersService,
-    private router: Router
+    private router: Router,
+    private cartService: CartService
   ) {}
+
+  // ngOnInit(): void {
+  //   this.cartService.getBooks()
+  //   .subscribe(res=>{
+  //     this.cartItemsLength = res.length;
+  //   })
+  // }
+  
 
   logout() {
     this.authService.logout().subscribe(() => {
